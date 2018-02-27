@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{9D31AE9D-5A18-4911-BBCF-2698626FA8A4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EaiConverter</RootNamespace>
+    <AssemblyName>EaiConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+    <Commandlineparameters>../../ressources G_Csharp</Commandlineparameters>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\AbstractActivityBuilder.cs" />
+    <Compile Include="Builder\EngineCommandActivityBuilder.cs" />
+    <Compile Include="Builder\EngineCommandServiceHelperBuilder.cs" />
+    <Compile Include="Builder\TimerActivityBuilder.cs" />
+    <Compile Include="Builder\Utils\XpathUtils.cs" />
+    <Compile Include="FileFilter.cs" />
+    <Compile Include="FundPerformanceCommentService.cs" />
+    <Compile Include="Model\EngineCommandActivity.cs" />
+    <Compile Include="Model\TbwConfiguration.cs" />
+    <Compile Include="Model\AdapterSchemaModel.cs" />
+    <Compile Include="Parser\ConfigurationParser.cs" />
+    <Compile Include="Parser\EngineCommandActivityParser.cs" />
+    <Compile Include="Processor\AdapterFileProcessorService.cs" />
+    <Compile Include="Parser\AdapterSchemaParser.cs" />
+    <Compile Include="Builder\AdapterSchemaBuilder.cs" />
+    <Compile Include="Processor\IFileFilter.cs" />
+    <Compile Include="Processor\PostProcessor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Transition.cs" />
+    <Compile Include="Model\ConditionType.cs" />
+    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\TibcoBWProcess.cs" />
+    <Compile Include="Parser\TibcoBWProcessLinqParser.cs" />
+    <Compile Include="Parser\XsdParser.cs" />
+    <Compile Include="Parser\JdbcQueryActivityParser.cs" />
+    <Compile Include="Parser\Utils\XElementParserUtils.cs" />
+    <Compile Include="CodeGenerator\ISourceCodeGeneratorService.cs" />
+    <Compile Include="Processor\TibcoFileProcessorService.cs" />
+    <Compile Include="Processor\TibcoBWDirectoryProcessorService.cs" />
+    <Compile Include="CodeGenerator\CsharpSimulationSourceCodeGeneratorService.cs" />
+    <Compile Include="CodeGenerator\CsharpSourceCodeGeneratorService.cs" />
+    <Compile Include="Processor\ConfigurationApp.cs" />
+    <Compile Include="CodeGenerator\Utils\Tab.cs" />
+    <Compile Include="CodeGenerator\Utils\VariableHelper.cs" />
+    <Compile Include="Model\ActivityType.cs" />
+    <Compile Include="Processor\SqlRequestToActivityMapper.cs" />
+    <Compile Include="Parser\XmlParseActivityParser.cs" />
+    <Compile Include="Model\XmlParseActivity.cs" />
+    <Compile Include="Model\JdbcQueryActivity.cs" />
+    <Compile Include="Model\MapperActivity.cs" />
+    <Compile Include="Parser\MapperActivityParser.cs" />
+    <Compile Include="Model\CallProcessActivity.cs" />
+    <Compile Include="Parser\CallProcessActivityParser.cs" />
+    <Compile Include="Model\AssignActivity.cs" />
+    <Compile Include="Parser\AssignActivityParser.cs" />
+    <Compile Include="Parser\IActivityParser.cs" />
+    <Compile Include="Parser\IActivityParserFactory.cs" />
+    <Compile Include="Parser\ActivityParserFactory.cs" />
+    <Compile Include="Parser\XslParser.cs" />
+    <Compile Include="Parser\Utils\XmlnsConstant.cs" />
+    <Compile Include="Model\ProcessVariable.cs" />
+    <Compile Include="Model\XsdImport.cs" />
+    <Compile Include="Processor\IFileProcessorService.cs" />
+    <Compile Include="Processor\XsdFileProcessorService.cs" />
+    <Compile Include="Model\JavaActivity.cs" />
+    <Compile Include="Parser\JavaActivityParser.cs" />
+    <Compile Include="Model\WriteToLogActivity.cs" />
+    <Compile Include="Parser\WriteToLogActivityParser.cs" />
+    <Compile Include="Parser\NullActivityParser.cs" />
+    <Compile Include="Model\GenerateErrorActivity.cs" />
+    <Compile Include="Parser\GenerateErrorActivityParser.cs" />
+    <Compile Include="Builder\InterfaceExtractorFromClass.cs" />
+    <Compile Include="Builder\TibcoProcessClassesBuilder.cs" />
+    <Compile Include="Builder\JdbcQueryActivityBuilder.cs" />
+    <Compile Include="Builder\DataAccessServiceBuilder.cs" />
+    <Compile Include="Builder\GetSharedVariableActivityBuilder.cs" />
+    <Compile Include="Builder\DataAccessBuilder.cs" />
+    <Compile Include="Builder\CoreProcessBuilder.cs" />
+    <Compile Include="Builder\LoggerInterfaceBuilder.cs" />
+    <Compile Include="Builder\DataAccessInterfacesCommonBuilder.cs" />
+    <Compile Include="Builder\Utils\JdbcQueryBuilderUtils.cs" />
+    <Compile Include="Builder\Utils\TransitionUtils.cs" />
+    <Compile Include="Builder\Utils\TargetAppNameSpaceService.cs" />
+    <Compile Include="Builder\DatabaseAttributeBuilder.cs" />
+    <Compile Include="Builder\IActivityBuilder.cs" />
+    <Compile Include="Builder\XslBuilder.cs" />
+    <Compile Include="Builder\XpathBuilder.cs" />
+    <Compile Include="Builder\IXpathBuilder.cs" />
+    <Compile Include="Builder\AssignActivityBuilder.cs" />
+    <Compile Include="Builder\DefaultActivityBuilder.cs" />
+    <Compile Include="Builder\ActivityBuilderFactory.cs" />
+    <Compile Include="Builder\MapperActivityBuilder.cs" />
+    <Compile Include="Builder\XmlParseActivityBuilder.cs" />
+    <Compile Include="Builder\XmlParserHelperBuilder.cs" />
+    <Compile Include="Builder\XsdBuilder.cs" />
+    <Compile Include="Builder\CallProcessActivityBuilder.cs" />
+    <Compile Include="Builder\JavaActivityBuilder.cs" />
+    <Compile Include="Builder\NullActivityBuilder.cs" />
+    <Compile Include="Builder\GenerateErrorActivityBuilder.cs" />
+    <Compile Include="Builder\WriteToLogActivityBuilder.cs" />
+    <Compile Include="Model\ClassParamater.cs" />
+    <Compile Include="Model\GroupActivity.cs" />
+    <Compile Include="Builder\GroupActivityBuilder.cs" />
+    <Compile Include="Builder\TibcoXslUtilBuilder.cs" />
+    <Compile Include="Parser\RdvPublishActivityParser.cs" />
+    <Compile Include="Model\RdvPublishActivity.cs" />
+    <Compile Include="Parser\RdvEventSourceActivityParser.cs" />
+    <Compile Include="Model\RdvEventSourceActivity.cs" />
+    <Compile Include="Parser\SharedVariableActivityParser.cs" />
+    <Compile Include="Model\SharedVariableActivity.cs" />
+    <Compile Include="Parser\GlobalVariableParser.cs" />
+    <Compile Include="Model\GlobalVariable.cs" />
+    <Compile Include="Model\GlobalVariablesRepository.cs" />
+    <Compile Include="Builder\GlobalVariableBuilder.cs" />
+    <Compile Include="Builder\Utils\CodeDomUtils.cs" />
+    <Compile Include="Processor\GlobalVariableProcessor.cs" />
+    <Compile Include="Parser\SleepActivityParser.cs" />
+    <Compile Include="Builder\SleepActivityBuilder.cs" />
+    <Compile Include="Model\SleepActivity.cs" />
+    <Compile Include="Builder\ResultSetBuilder.cs" />
+    <Compile Include="Builder\Utils\CSharpTypeConstant.cs" />
+    <Compile Include="Builder\RdvEventSourceActivityBuilder.cs" />
+    <Compile Include="Builder\RdvPublishActivityBuilder.cs" />
+    <Compile Include="ressources\TibcoXslHelper.cs" />
+    <Compile Include="Model\TimerEventActivity.cs" />
+    <Compile Include="Parser\TimerEventActivityParser.cs" />
+    <Compile Include="Model\AdapterSubscriberActivity.cs" />
+    <Compile Include="Parser\AdapterSubscriberActivityParser.cs" />
+    <Compile Include="Builder\DefaultSubscriberBuilder.cs" />
+    <Compile Include="Builder\SubscriberInterfaceBuilder.cs" />
+    <Compile Include="Parser\ConfirmActivityParser.cs" />
+    <Compile Include="Model\ConfirmActivity.cs" />
+    <Compile Include="Builder\ConfirmActivityBuilder.cs" />
+    <Compile Include="Builder\SetSharedVariableActivityBuilder.cs" />
+    <Compile Include="Builder\SharedVariableServiceBuilder.cs" />
+    <Compile Include="Builder\AbstractSharedVariableActivityBuilder.cs" />
+    <Compile Include="Builder\XslSyntaxBuilder.cs" />
+    <Compile Include="Model\XslSyntaxElement.cs" />
+    <Compile Include="Processor\TibcoDependencyAnalyserProcessorService.cs" />
+    <Compile Include="Processor\AnalyserFileProcessorService.cs" />
+    <Compile Include="Processor\IDirectoryProcessorService.cs" />
+    <Compile Include="Builder\ModuleBuilder.cs" />
+    <Compile Include="Builder\ServiceManagerInterfaceBuilder.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ressources\BasicSample.process" />
+    <None Include="ressources\CodeDomGenerationExample.txt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedFlat" ResourceNamePolicy="FileFormatDefault" />
+          <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
+          <CSharpFormattingPolicy IndentSwitchBody="True" IndentBlocksInsideExpressions="True" AnonymousMethodBraceStyle="NextLine" PropertyBraceStyle="NextLine" PropertyGetBraceStyle="NextLine" PropertySetBraceStyle="NextLine" EventBraceStyle="NextLine" EventAddBraceStyle="NextLine" EventRemoveBraceStyle="NextLine" StatementBraceStyle="NextLine" ElseNewLinePlacement="NewLine" CatchNewLinePlacement="NewLine" FinallyNewLinePlacement="NewLine" WhileNewLinePlacement="DoNotCare" ArrayInitializerWrapping="DoNotChange" ArrayInitializerBraceStyle="NextLine" BeforeMethodDeclarationParentheses="False" BeforeMethodCallParentheses="False" BeforeConstructorDeclarationParentheses="False" NewLineBeforeConstructorInitializerColon="NewLine" NewLineAfterConstructorInitializerColon="SameLine" BeforeDelegateDeclarationParentheses="False" NewParentheses="False" SpacesBeforeBrackets="False" inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+          <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>
